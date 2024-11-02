@@ -1,0 +1,24 @@
+header {
+  @apply w-full;
+
+  .logo {
+    svg {
+      @apply h-10 w-auto;
+    }
+  }
+
+  &.transparent-bg {
+    @apply text-white;
+
+    .content {
+      @apply border-white;
+    }
+    a {
+      @apply text-white;
+    }
+
+    .searchbox {
+      @apply rounded-lg border-gray-500 outline-gray-300 ring-1 ring-inset ring-gray-300;
+    }
+  }
+}
