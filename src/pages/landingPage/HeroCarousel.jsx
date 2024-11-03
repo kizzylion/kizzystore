@@ -59,7 +59,7 @@ function HeroCarousel(props) {
           </div>
         ))}
       </div>
-      <div className="embla__dots absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center">
+      <div className="embla__dots absolute bottom-10 left-1/2 flex -translate-x-1/2 items-center gap-4">
         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
           <i className="bi bi-chevron-left text-xl text-white"></i>
         </PrevButton>

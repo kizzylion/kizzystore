@@ -7,7 +7,10 @@ import "./Hero.scss";
 
 function Hero() {
   return (
-    <section id="hero" className="h-screen w-full bg-gray-950 text-white">
+    <section
+      id="hero"
+      className="flex h-screen w-full flex-col bg-gray-950 text-white lg:h-auto"
+    >
       <HeroCarousel />
       <div className="h-20 w-full bg-gray-800"></div>
     </section>

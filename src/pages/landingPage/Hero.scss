@@ -2,7 +2,7 @@
   @apply flex flex-col items-center bg-gray-950 text-white;
 
   .slides {
-    @apply h-[90%] w-screen items-center justify-center bg-gray-800 px-5 lg:aspect-[2.2/1] lg:h-auto;
+    @apply h-full w-screen items-center justify-center bg-gray-800 px-5 lg:aspect-[2.2/1] lg:h-auto;
 
     .content {
       @apply flex flex-col items-center justify-center text-white;
