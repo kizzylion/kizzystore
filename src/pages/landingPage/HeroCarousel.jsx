@@ -60,21 +60,25 @@ function HeroCarousel(props) {
         ))}
       </div>
       <div className="embla__dots absolute bottom-10 left-1/2 flex -translate-x-1/2 items-center gap-4">
-        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
-          <i className="bi bi-chevron-left text-xl text-white"></i>
-        </PrevButton>
+        <div className="mr-2 size-fit">
+          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
+            <i className="bi bi-chevron-left text-xl text-white"></i>
+          </PrevButton>
+        </div>
         {scrollSnaps.map((_, index) => (
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
             className={"embla__dot".concat(
-              index === selectedIndex ? "embla__dot--selected" : "",
+              index === selectedIndex ? "--selected" : "",
             )}
           />
         ))}
-        <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled}>
-          <i className="bi bi-chevron-right text-xl text-white"></i>
-        </NextButton>
+        <div className="ml-2 size-fit">
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled}>
+            <i className="bi bi-chevron-right text-xl text-white"></i>
+          </NextButton>
+        </div>
       </div>
     </div>
   );

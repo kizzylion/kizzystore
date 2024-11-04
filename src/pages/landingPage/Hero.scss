@@ -35,15 +35,11 @@
 
   .embla__dots {
     @apply flex gap-2;
-    button {
-      @apply h-2 w-2 rounded-full bg-white;
-    }
-    button:last-child,
-    button:first-child {
-      @apply bg-transparent;
-    }
-    button:is-selected {
-      @apply border-2 border-black;
+    .embla__dot {
+      @apply h-2 w-2 rounded-full bg-white/30;
+      &--selected {
+        @apply h-2 w-2 rounded-full bg-white;
+      }
     }
   }
 
