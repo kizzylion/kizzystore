@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Heading from "../components/Heading";
 import ReactGA from "react-ga";
 import { useEffect } from "react";
+import HeadingBanner from "../components/HeadingBanner";
 
 ReactGA.initialize(import.meta.env.VITE_GA_TRACKING_ID);
 
@@ -18,9 +19,10 @@ const Root = () => {
 
   return (
     <>
+      <HeadingBanner />
       <Heading />
       <Analytics />
-      <main>
+      <main className="relative">
         <Outlet />
       </main>
     </>

@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
   DotButton,
@@ -13,9 +13,9 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 
 function HeroCarousel(props) {
-  const { slides, options } = props;
+  const { slides } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 10000 }),
+    Autoplay({ delay: 6000 }),
   ]);
 
   const onNavButtonClick = useCallback((emblaApi) => {
@@ -47,9 +47,9 @@ function HeroCarousel(props) {
       ref={emblaRef}
       className="embla-viewport relative h-fit w-full overflow-hidden"
     >
-      <div className="embla-container flex h-fit">
+      <div className="embla-container relative flex min-h-fit">
         {slides.map((slide, index) => (
-          <div className="embla-slide" key={index}>
+          <div className="embla-slide fade-slide" key={index}>
             {slide}
           </div>
         ))}

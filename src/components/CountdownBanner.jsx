@@ -59,7 +59,7 @@ function CountdownBanner({ displaySection }) {
   return (
     <div
       id="countdown-section"
-      className="mx-auto flex h-fit justify-center bg-gray-950 px-5 py-7 text-white md:px-8 lg:py-5"
+      className="mx-auto flex h-fit justify-center bg-gray-950 px-5 py-7 text-white md:px-8 lg:py-8"
     >
       <div className="@container/content flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-0">
         <h3 className="w-fit text-center text-xl lg:text-2xl">
