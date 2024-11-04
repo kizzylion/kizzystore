@@ -50,7 +50,7 @@ function HeroCarousel(props) {
   return (
     <div
       ref={emblaRef}
-      className="embla-viewport relative h-[90%] w-full overflow-hidden"
+      className="embla-viewport relative h-[90vh] w-full overflow-hidden md:h-[65vh]"
     >
       <div className="embla-container flex h-full">
         {slidesArray.map((slide, index) => (

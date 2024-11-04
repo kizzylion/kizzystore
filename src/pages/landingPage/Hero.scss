@@ -46,4 +46,10 @@
       @apply border-2 border-black;
     }
   }
+
+  .time-box:not(:last-child) {
+    .time {
+      @apply border-r border-white;
+    }
+  }
 }
