@@ -1,14 +1,24 @@
 header {
-  @apply w-full;
+  @apply w-full bg-gray-50 text-gray-950;
 
   .logo {
     svg {
       @apply h-10 w-auto;
+      path {
+        @apply fill-gray-950;
+      }
     }
   }
 
   &.transparent-bg {
-    @apply text-white;
+    @apply bg-transparent text-white;
+    .logo {
+      svg {
+        path {
+          @apply fill-white;
+        }
+      }
+    }
 
     .content {
       @apply border-white;

@@ -3,7 +3,7 @@ import "./heading.scss";
 
 const Heading = () => {
   return (
-    <header className="transparent-bg sticky top-0 z-50 lg:px-8">
+    <header id="header" className="transparent-bg sticky top-0 z-50 lg:px-8">
       <section className="w-full px-5 md:px-8">
         <div className="content grid w-full grid-cols-3 items-center border-b py-4">
           <nav className="flex items-center">

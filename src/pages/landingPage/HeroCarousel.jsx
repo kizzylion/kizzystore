@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import PropTypes from "prop-types";
 import {
   DotButton,
   useDotButton,
@@ -10,12 +11,6 @@ import {
 } from "../../components/EmblaCarouselArrowButtons";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-
-import Slide1 from "./Slide1";
-import Slide2 from "./Slide2";
-import Slide3 from "./Slide3";
-
-const slidesArray = [<Slide1 />, <Slide2 />, <Slide3 />];
 
 function HeroCarousel(props) {
   const { slides, options } = props;
@@ -50,10 +45,10 @@ function HeroCarousel(props) {
   return (
     <div
       ref={emblaRef}
-      className="embla-viewport relative h-[90vh] w-full overflow-hidden md:h-[65vh]"
+      className="embla-viewport relative h-fit w-full overflow-hidden"
     >
-      <div className="embla-container flex h-full">
-        {slidesArray.map((slide, index) => (
+      <div className="embla-container flex h-fit">
+        {slides.map((slide, index) => (
           <div className="embla-slide" key={index}>
             {slide}
           </div>
@@ -85,3 +80,8 @@ function HeroCarousel(props) {
 }
 
 export default HeroCarousel;
+
+HeroCarousel.propTypes = {
+  slides: PropTypes.arrayOf(PropTypes.element).isRequired,
+  options: PropTypes.object,
+};

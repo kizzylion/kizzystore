@@ -12,7 +12,7 @@ function TimeBox({ time, label }) {
       <h4 className="time mb-2 w-[3.75em] text-center text-xl lg:text-2xl">
         {time}
       </h4>
-      <span className="label">{label}</span>
+      <span className="label text-xs">{label}</span>
     </div>
   );
 }
@@ -25,10 +25,26 @@ TimeBox.propTypes = {
 function CountdownBanner({ displaySection }) {
   const [showCountdown, setShowCountdown] = useState(displaySection);
 
+  // let complete date = 25/11/2024
+  let completeDate = new Date("2024-11-25T23:59:59");
+  const convertDateToMilliseconds = (date) => {
+    return new Date(date).getTime();
+  };
+
+  const getDateDifference = (startDate, endDate) => {
+    const start = convertDateToMilliseconds(startDate);
+    const end = convertDateToMilliseconds(endDate);
+    return end - start;
+  };
+
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       //   setShowCountdown(false);
-      return <div>Completed</div>;
+      return (
+        <div>
+          <Button type="secondary">Shop Now</Button>
+        </div>
+      );
     } else {
       return (
         <div className="flex w-fit items-center gap-0 px-5 lg:px-10">
@@ -43,14 +59,17 @@ function CountdownBanner({ displaySection }) {
   return (
     <div
       id="countdown-section"
-      className="mx-auto flex h-fit max-w-7xl justify-center bg-gray-950 px-5 py-7 text-white md:px-8 lg:py-5"
+      className="mx-auto flex h-fit justify-center bg-gray-950 px-5 py-7 text-white md:px-8 lg:py-5"
     >
-      <div className="@container/content flex flex-col items-center justify-center gap-6 lg:flex-row lg:gap-0">
+      <div className="@container/content flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-0">
         <h3 className="w-fit text-center text-xl lg:text-2xl">
           Annual Sales Event
         </h3>
-        <Countdown date={Date.now() + 1000000} renderer={renderer} />
-        <div className="subscription-reference grid w-fit grid-cols-2 grid-cols-[1fr_auto] items-center justify-center gap-3 lg:gap-10">
+        <Countdown
+          date={Date.now() + getDateDifference(new Date(), completeDate)}
+          renderer={renderer}
+        />
+        <div className="subscription-reference grid w-fit grid-cols-[1fr_auto] items-center justify-center gap-3 lg:gap-10">
           <p className="text-wrap text-center text-sm">
             Save on all best selling and exclusive styles
           </p>

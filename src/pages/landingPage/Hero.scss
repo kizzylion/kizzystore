@@ -2,11 +2,26 @@
   @apply flex flex-col items-center bg-gray-950 text-white;
 
   .slides {
-    @apply h-full w-screen items-center justify-center bg-gray-800 px-5 lg:aspect-[2.2/1] lg:h-auto;
+    @apply h-[90vh] w-screen items-center justify-center bg-gray-800 px-5 md:h-[65vh] lg:aspect-[2.2/1] lg:h-auto;
 
     .content {
       @apply flex flex-col items-center justify-center text-white;
       z-index: 1;
+
+      .title {
+        @apply mb-[0.4em];
+        font-size: clamp(1rem, 6vh, 6rem);
+      }
+
+      .subtitle {
+        @apply mb-[2em];
+        font-size: clamp(0.5rem, 3vh, 1.5rem);
+      }
+
+      .label {
+        @apply mb-[0.5em];
+        font-size: clamp(0.3rem, 2vh, 1rem);
+      }
     }
     &::after {
       content: "";
