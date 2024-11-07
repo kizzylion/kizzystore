@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Hero from "./Hero";
 import RichText from "./RichText";
+import CategorySection from "./CategorySection";
 
 function headerScroll() {
   const header = document.getElementById("header");
@@ -22,6 +23,7 @@ function LandingPage() {
           staple to gain from kizzy .
         </p>
       </RichText>
+      <CategorySection />
     </div>
   );
 }

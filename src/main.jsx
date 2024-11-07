@@ -11,7 +11,6 @@ import LandingPage from "./pages/landingPage/LandingPage";
 
 // Initialize Google Analytics using the tracking ID from the .env file
 ReactGA.initialize(import.meta.env.VITE_GA_TRACKING_ID);
-console.log(import.meta.env.VITE_GA_TRACKING_ID);
 
 const routes = createBrowserRouter([
   {
