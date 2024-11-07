@@ -1,5 +1,5 @@
 header {
-  @apply w-full bg-gray-50 text-gray-950;
+  @apply w-full bg-gray-200 text-gray-950 transition-all duration-300;
 
   .logo {
     svg {
@@ -8,6 +8,9 @@ header {
         @apply fill-gray-950;
       }
     }
+  }
+  .searchbox {
+    @apply rounded-lg border border-gray-400 outline-gray-400 ring-1 ring-inset ring-gray-400;
   }
 
   &.transparent-bg {
