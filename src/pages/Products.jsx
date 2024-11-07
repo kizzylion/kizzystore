@@ -5,6 +5,7 @@ function Products() {
   useEffect(() => {
     removeTransparentBg();
   }, []);
+
   return <div>Products</div>;
 }
 

@@ -7,8 +7,11 @@ import { useEffect } from "react";
 
 const Root = () => {
   const location = useLocation();
+
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
+    ReactGA.set({ page: location.pathname + location.search });
+    console.log(location.pathname + location.search);
   }, [location]);
 
   return (
