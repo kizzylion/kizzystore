@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./tailwind.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";

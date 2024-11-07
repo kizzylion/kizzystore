@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Heading from "../components/Heading";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import HeadingBanner from "../components/HeadingBanner";
 import { useEffect } from "react";
@@ -10,9 +10,8 @@ const Root = () => {
 
   useEffect(() => {
     // Track page views whenever the location changes
-
-    const pagePath = location.pathname + location.search;
-    ReactGA.pageview(pagePath);
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+    console.log("Tracked page view:", location.pathname); // Log for debugging
   }, [location]);
 
   return (
