@@ -13,7 +13,13 @@ import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import AllCategoriesPage from "./pages/AllCategoriesPage";
 // Initialize Google Analytics using the tracking ID from the .env file
-ReactGA.initialize(import.meta.env.VITE_GA_TRACKING_ID);
+const trackingId = import.meta.env.VITE_GA_TRACKING_ID;
+if (trackingId) {
+  ReactGA.initialize(trackingId);
+  console.log("Google Analytics initialized");
+} else {
+  console.error("Google Analytics tracking ID is missing.");
+}
 
 const routes = createBrowserRouter([
   {

@@ -10,7 +10,9 @@ const Root = () => {
 
   useEffect(() => {
     // Track page views whenever the location changes
-    ReactGA.pageview(location.pathname + location.search);
+
+    const pagePath = location.pathname + location.search;
+    ReactGA.pageview(pagePath);
   }, [location]);
 
   return (
