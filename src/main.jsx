@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./tailwind.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import ReactGA from "react-ga";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
@@ -11,8 +12,8 @@ import LandingPage from "./pages/landingPage/LandingPage";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import AllCategoriesPage from "./pages/AllCategoriesPage";
-
 // Initialize Google Analytics using the tracking ID from the .env file
+ReactGA.initialize(import.meta.env.VITE_GA_TRACKING_ID);
 
 const routes = createBrowserRouter([
   {

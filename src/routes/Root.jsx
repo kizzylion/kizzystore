@@ -9,10 +9,8 @@ const Root = () => {
   const location = useLocation();
 
   useEffect(() => {
-    ReactGA.initialize(import.meta.env.VITE_GA_TRACKING_ID);
+    // Track page views whenever the location changes
     ReactGA.pageview(location.pathname + location.search);
-    ReactGA.set({ page: location.pathname + location.search });
-    console.log(location.pathname + location.search);
   }, [location]);
 
   return (
