@@ -8,6 +8,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import ErrorPage from "./ErrorElement";
 import LandingPage from "./pages/landingPage/LandingPage";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import AllCategoriesPage from "./pages/AllCategoriesPage";
 
 // Initialize Google Analytics using the tracking ID from the .env file
 ReactGA.initialize(import.meta.env.VITE_GA_TRACKING_ID);
@@ -21,6 +24,24 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
+      },
+      {
+        path: "/categories",
+        element: <AllCategoriesPage />,
+        children: [
+          {
+            path: "/categories/:categoryName",
+            element: <Products />,
+          },
+        ],
+      },
+      {
+        path: "/product/:productId",
+        element: <ProductDetails />,
       },
     ],
   },

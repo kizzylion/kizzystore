@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "./Hero";
 import RichText from "./RichText";
 import CategorySection from "./CategorySection";
+import { addTransparentBg } from "@/utilities/utilities";
 
 function headerScroll() {
   const header = document.getElementById("header");
@@ -12,6 +13,7 @@ function headerScroll() {
 
 function LandingPage() {
   useEffect(() => {
+    addTransparentBg();
     window.addEventListener("scroll", headerScroll);
   }, []);
   return (

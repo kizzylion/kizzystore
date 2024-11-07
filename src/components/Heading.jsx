@@ -12,7 +12,7 @@ const Heading = () => {
             </button>
             <ul className="hidden items-center gap-4 lg:flex">
               <li>
-                <Link to="shop">Shop</Link>
+                <Link to="products">Shop</Link>
               </li>
               <li>
                 <Link to="Categories">Categories</Link>
