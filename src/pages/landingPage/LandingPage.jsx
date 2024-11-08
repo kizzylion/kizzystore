@@ -18,7 +18,7 @@ function LandingPage() {
     };
   }, []);
   return (
-    <div className="-mt-24 h-fit w-screen">
+    <main className="-mt-24 h-fit w-screen">
       <Hero />
       <RichText>
         <p className="mx-auto text-lg">
@@ -27,7 +27,7 @@ function LandingPage() {
         </p>
       </RichText>
       <CategorySection />
-    </div>
+    </main>
   );
 }
 

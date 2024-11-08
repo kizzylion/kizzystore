@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function CategoryCard({ name, description, image }) {
   return (
     <Link
-      to={`/category/${name}`}
+      to={`/categories/${name}`}
       className="@container/categoryCard card relative isolate flex aspect-[1/1.33] h-auto w-full flex-col bg-gray-200 p-8"
     >
       <div className="card-content mt-auto flex h-fit flex-col gap-4 text-left text-white">

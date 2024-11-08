@@ -24,7 +24,9 @@ function AllCategoriesPage() {
         </div>
         <h1 className="text-center text-4xl font-medium">All Categories</h1>
       </section>
-      <CategorySection />
+      <main>
+        <CategorySection />
+      </main>
     </div>
   );
 }

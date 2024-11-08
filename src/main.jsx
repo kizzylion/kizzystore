@@ -38,12 +38,10 @@ const routes = createBrowserRouter([
       {
         path: "/categories",
         element: <AllCategoriesPage />,
-        children: [
-          {
-            path: "/categories/:categoryName",
-            element: <Products />,
-          },
-        ],
+      },
+      {
+        path: "/categories/:category",
+        element: <Products />,
       },
       {
         path: "/shop/:productId",

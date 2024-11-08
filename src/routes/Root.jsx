@@ -18,9 +18,9 @@ const Root = () => {
     <>
       <HeadingBanner />
       <Heading />
-      <main className="relative">
+      <div className="relative">
         <Outlet />
-      </main>
+      </div>
     </>
   );
 };
