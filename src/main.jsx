@@ -32,7 +32,7 @@ const routes = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "/products",
+        path: "/shop",
         element: <Products />,
       },
       {
@@ -46,7 +46,7 @@ const routes = createBrowserRouter([
         ],
       },
       {
-        path: "/product/:productId",
+        path: "/shop/:productId",
         element: <ProductDetails />,
       },
     ],

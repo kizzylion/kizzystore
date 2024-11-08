@@ -4,5 +4,8 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [import("@tailwindcss/container-queries")],
+  plugins: [
+    require("@tailwindcss/container-queries"),
+    // ... other plugins ...
+  ],
 };

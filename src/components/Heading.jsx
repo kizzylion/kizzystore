@@ -12,10 +12,13 @@ const Heading = () => {
             </button>
             <ul className="hidden items-center gap-4 lg:flex">
               <li>
-                <Link to="products">Shop</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="Categories">Categories</Link>
+                <Link to="shop">Shop</Link>
+              </li>
+              <li>
+                <Link to="categories">Categories</Link>
               </li>
             </ul>
           </nav>

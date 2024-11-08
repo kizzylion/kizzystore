@@ -5,8 +5,8 @@ import shoes from "@/assets/shoes.jpg";
 
 function CategorySection() {
   return (
-    <section id="CategorySection " className="px-5">
-      <div className="content mx-auto grid grid-cols-1 gap-4 border-y border-gray-300 py-10 text-center md:grid-cols-3">
+    <section id="CategorySection" className="px-5 md:px-8">
+      <div className="content mx-auto grid grid-cols-1 gap-x-5 gap-y-8 border-y border-gray-300 py-10 text-center md:grid-cols-3">
         {Categories.map((category) => (
           <CategoryCard key={category.name} {...category} />
         ))}

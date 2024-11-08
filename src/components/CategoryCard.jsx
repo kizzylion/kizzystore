@@ -6,11 +6,15 @@ function CategoryCard({ name, description, image }) {
   return (
     <Link
       to={`/category/${name}`}
-      className="card relative isolate flex aspect-[1/1.33] h-auto w-full flex-col bg-gray-200 p-8"
+      className="@container/categoryCard card relative isolate flex aspect-[1/1.33] h-auto w-full flex-col bg-gray-200 p-8"
     >
       <div className="card-content mt-auto flex h-fit flex-col gap-4 text-left text-white">
-        <h3 className="text-4xl font-medium">{name}</h3>
-        <h4 className="text-xl text-gray-100">{description}</h4>
+        <h3 className="@sm/categoryCard:text-4xl card-name text-2xl font-semibold">
+          {name}
+        </h3>
+        <h4 className="@sm/categoryCard:text-lg card-description text-lg text-gray-100">
+          {description}
+        </h4>
       </div>
 
       <button

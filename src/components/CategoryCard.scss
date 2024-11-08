@@ -8,3 +8,37 @@
     rgba(0, 0, 0, 0.7)
   );
 }
+
+/* Define .categoryCard as a container with a name */
+.categoryCard {
+  container-type: inline-size;
+  container-name: categoryCard;
+
+  /* Default styling for h3 and h4 */
+  h3 {
+    font-size: 2rem; /* Fallback size */
+  }
+
+  h4 {
+    font-size: 1rem; /* Fallback size */
+  }
+
+  /* Responsive text sizes with container query */
+  @container categoryCard (max-width: 400px) {
+    h3 {
+      font-size: clamp(
+        2.5rem,
+        1.5ci,
+        4.5rem
+      ); /* Responsive font size based on container size */
+    }
+
+    h4 {
+      font-size: clamp(
+        1rem,
+        1ci,
+        1.5rem
+      ); /* Responsive font size for the description */
+    }
+  }
+}
