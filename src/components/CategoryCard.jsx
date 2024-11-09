@@ -6,13 +6,13 @@ function CategoryCard({ name, description, image }) {
   return (
     <Link
       to={`/categories/${name}`}
-      className="@container/categoryCard card relative isolate flex aspect-[1/1.33] h-auto w-full flex-col bg-gray-200 p-8"
+      className="card relative isolate flex aspect-[1/1.33] h-auto w-full flex-col bg-gray-200 p-8 @container/categoryCard"
     >
       <div className="card-content mt-auto flex h-fit flex-col gap-4 text-left text-white">
-        <h3 className="@sm/categoryCard:text-4xl card-name text-2xl font-semibold">
+        <h3 className="card-name text-2xl font-semibold @sm/categoryCard:text-4xl">
           {name}
         </h3>
-        <h4 className="@sm/categoryCard:text-lg card-description text-lg text-gray-100">
+        <h4 className="card-description text-lg text-gray-100 @sm/categoryCard:text-lg">
           {description}
         </h4>
       </div>
@@ -25,7 +25,12 @@ function CategoryCard({ name, description, image }) {
       </button>
 
       <div className="card-image absolute inset-0 -z-10">
-        <img src={image} alt={name} className="h-full w-full object-cover" />
+        <img
+          src={image}
+          alt={name}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
       </div>
     </Link>
   );

@@ -9,9 +9,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import ErrorPage from "./ErrorElement";
 import LandingPage from "./pages/landingPage/LandingPage";
-import Products from "./pages/Products";
+import Products, { fetchProducts as loadProducts } from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import AllCategoriesPage from "./pages/AllCategoriesPage";
+
 // Initialize Google Analytics using the tracking ID from the .env file
 const trackingId = import.meta.env.VITE_GA_TRACKING_ID;
 if (trackingId) {
@@ -34,6 +35,7 @@ const routes = createBrowserRouter([
       {
         path: "/shop",
         element: <Products />,
+        loader: loadProducts,
       },
       {
         path: "/categories",
