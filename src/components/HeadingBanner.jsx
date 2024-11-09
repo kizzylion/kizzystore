@@ -33,9 +33,9 @@ function HeadingBanner() {
   return (
     <section
       id="heading-banner"
-      className="z-[100] flex h-16 w-full bg-gray-950"
+      className="z-[100] flex h-fit w-full bg-gray-950"
     >
-      <div className="content mx-auto mt-3 flex h-fit w-full max-w-xl px-5 md:px-8">
+      <div className="content mx-auto my-3 flex h-fit w-full max-w-xl px-5 md:px-8">
         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled}>
           <i className="bi bi-chevron-left text-sm text-gray-400"></i>
         </PrevButton>
