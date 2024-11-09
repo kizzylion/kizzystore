@@ -12,6 +12,7 @@ import LandingPage from "./pages/landingPage/LandingPage";
 import Products, { fetchProducts as loadProducts } from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import AllCategoriesPage from "./pages/AllCategoriesPage";
+import { loader as loadProductDetails } from "./pages/ProductDetails";
 
 // Initialize Google Analytics using the tracking ID from the .env file
 const trackingId = import.meta.env.VITE_GA_TRACKING_ID;
@@ -48,6 +49,7 @@ const routes = createBrowserRouter([
       {
         path: "/shop/:productId",
         element: <ProductDetails />,
+        loader: loadProductDetails,
       },
     ],
   },

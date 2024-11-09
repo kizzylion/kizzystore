@@ -1,8 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
 import { removeTransparentBg, headerScroll } from "../utilities/utilities";
 
+export async function loader({ params }) {
+  try {
+    const response = await fetch(
+      `https://api.escuelajs.co/api/v1/products/${params.productId}`,
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
 function ProductDetails() {
+  const { data } = useLoaderData();
+  console.log(data);
   useEffect(() => {
     removeTransparentBg();
     window.removeEventListener("scroll", headerScroll);
@@ -19,7 +37,7 @@ function ProductDetails() {
         </div>
       </section>
 
-      <main className="grid w-full grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4"></main>
+      <main className="grid w-full grid-cols-1 gap-5 md:grid-cols-2"></main>
     </div>
   );
 }

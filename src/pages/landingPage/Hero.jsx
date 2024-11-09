@@ -1,20 +1,45 @@
-import PropTypes from "prop-types";
 import CountdownBanner from "@/components/CountdownBanner";
 
 import HeroCarousel from "@/pages/landingPage/HeroCarousel";
 import "./Hero.scss";
 
-import "./Hero.scss";
+import slide1bg from "@/assets/slide1bg.jpg";
+import slide2bg from "@/assets/slide2bg.jpg";
+import slide3bg from "@/assets/slide3bg.jpg";
+import Slide from "./Slide";
 
-import Slide1 from "./Slide1";
-import Slide2 from "./Slide2";
-import Slide3 from "./Slide3";
-
-const slidesArray = [
-  <Slide1 key={1} />,
-  <Slide2 key={2} />,
-  <Slide3 key={3} />,
+const slidesInfo = [
+  {
+    label: "INTRODUCTION",
+    title: "The Summer Collection",
+    subtitle: "Effortless piece to bring in the new",
+    buttonText: "SHOP NOW",
+    bg: slide1bg,
+    key: 1,
+    href: "/shop",
+  },
+  {
+    label: "Last Chance Sale",
+    title: "Smart Home Technology",
+    subtitle: "Create your dream home with smart home technology",
+    buttonText: "SHOP NOW",
+    bg: slide2bg,
+    key: 2,
+    href: "/shop",
+  },
+  {
+    label: "NEW ARRIVALS",
+    title: "Looks Good",
+    subtitle: "Slip into the good looking, laid back essentials",
+    buttonText: "SHOP NOW",
+    bg: slide3bg,
+    key: 3,
+    href: "/shop",
+  },
 ];
+const slidesArray = slidesInfo.map((info) => (
+  <Slide key={info.key} info={info} />
+));
 
 function Hero() {
   return (
@@ -29,7 +54,5 @@ function Hero() {
     </section>
   );
 }
-
-Hero.propTypes = {};
 
 export default Hero;
