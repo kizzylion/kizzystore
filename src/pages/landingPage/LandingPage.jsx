@@ -18,7 +18,7 @@ function LandingPage() {
     };
   }, []);
   return (
-    <main className="-mt-24 h-fit w-screen">
+    <main className="-mt-20 h-fit w-screen">
       <Hero />
       <RichText>
         <p className="mx-auto text-lg">
