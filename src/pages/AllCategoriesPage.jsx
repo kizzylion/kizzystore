@@ -17,12 +17,17 @@ function AllCategoriesPage() {
       id="AllCategoriesPage"
       className="h-fit w-screen py-5 md:py-10 lg:px-8"
     >
-      <section className="heading mb-8 flex flex-col px-5 md:mb-10 md:px-8">
-        <div id="breadcrumb" className="mb-8 flex items-center gap-2 py-4">
-          <Link to="/">Home</Link>
-          <span>Categories</span>
+      <section className="heading flex flex-col items-center px-5 py-8 md:px-8">
+        <h1 className="text-center text-2xl font-medium capitalize md:text-4xl">
+          All Categories
+        </h1>
+        <div
+          id="breadcrumb"
+          className="flex w-fit items-center gap-2 py-4 text-sm text-gray-500"
+        >
+          <Link to="/">Home</Link> /
+          <span className="text-gray-900">Categories</span>
         </div>
-        <h1 className="text-center text-4xl font-medium">All Categories</h1>
       </section>
       <main>
         <CategorySection />
