@@ -1,7 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Heading from "../components/Heading";
 import ReactGA from "react-ga4";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Default styles
 import HeadingBanner from "../components/HeadingBanner";
 import { useEffect, useState } from "react";
 
@@ -44,7 +45,7 @@ const Root = () => {
         quantity: selectedQuantity,
         image: productImage,
       };
-      setCartItems([...cartItems, cartItem]);
+      setCartItems((prevCartItems) => [...prevCartItems, cartItem]);
     }
   };
 
@@ -55,6 +56,7 @@ const Root = () => {
       <div className="relative">
         <Outlet context={{ handleAddToCart, cartItems }} />
       </div>
+      <ToastContainer />
     </>
   );
 };

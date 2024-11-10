@@ -31,8 +31,6 @@ function Products() {
   const { category } = useParams();
   const { data } = useLoaderData();
 
-  console.log(data);
-
   return (
     <div id="shop" className="relative h-fit w-screen py-5 md:py-10 lg:px-8">
       <section className="heading flex flex-col items-center px-5 py-8 md:px-8">

@@ -1,7 +1,8 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { removeTransparentBg, headerScroll } from "../utilities/utilities";
 import Button from "../components/Button";
+import { ToastContainer, toast } from "react-toastify";
 
 export async function loader({ params }) {
   try {
@@ -21,7 +22,8 @@ export async function loader({ params }) {
 
 function ProductDetails() {
   const { data } = useLoaderData();
-  console.log(data);
+  const { handleAddToCart, cartItems } = useOutletContext();
+
   useEffect(() => {
     removeTransparentBg();
     window.removeEventListener("scroll", headerScroll);
@@ -30,8 +32,12 @@ function ProductDetails() {
     };
   }, []);
 
+  const notify = () => {
+    toast("This is a simple toast!");
+  };
+
   const [quantity, setQuantity] = useState(1);
-  const [isAdded, setIsAdded] = useState(false);
+
   const [selectedImage, setSelectedImage] = useState(data.images[0]);
 
   const handleIncrease = () => {
@@ -44,8 +50,9 @@ function ProductDetails() {
     <div id="product-detail" className="h-fit w-screen py-5 md:py-10 lg:px-8">
       <section className="heading mb-8 flex flex-col px-5 md:mb-10 md:px-8">
         <div id="breadcrumb" className="flex items-center gap-2">
-          <Link to="/">Home</Link>
-          <span>Shop</span>
+          <Link to="/">Home</Link> /<Link to="/shop">Shop</Link> /
+          <Link to={`/shop/${data.category.id}`}>{data.category.name}</Link> /
+          <span>{data.title}</span>
         </div>
       </section>
 
@@ -57,8 +64,8 @@ function ProductDetails() {
                 <img
                   key={index}
                   src={image
-                    .replace(/^\["|"\]$/g, "")
-                    .replace(/^\[\\?"|\\?"\]$/g, "")}
+                    .replace(/^\[\\?"|\\?"\]$/g, "")
+                    .replace(/^\["|"\]$/g, "")}
                   alt={data.title}
                   className={`absolute inset-0 aspect-square h-auto w-full object-cover transition-all duration-300 ${
                     selectedImage === image
@@ -140,7 +147,15 @@ function ProductDetails() {
             </div>
           </div>
           <div className="product-actions flex items-center gap-2">
-            <Button type="black-outline">Add to Cart</Button>
+            <Button
+              type="black-outline"
+              onClick={() => {
+                handleAddToCart(data, quantity);
+                notify();
+              }}
+            >
+              Add to Cart
+            </Button>
             <Button type="black">Buy It Now</Button>
           </div>
         </div>

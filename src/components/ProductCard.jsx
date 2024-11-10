@@ -1,11 +1,13 @@
 import Button from "./Button";
 import PropTypes from "prop-types";
 import { Link, useOutletContext } from "react-router-dom";
+import { notify } from "@/utilities/utilities";
 
 function ProductCard({ product }) {
   const { handleAddToCart } = useOutletContext();
   const onClick = (e) => {
     e.preventDefault();
+    notify("Added to cart", "success");
     handleAddToCart(product);
   };
   return (

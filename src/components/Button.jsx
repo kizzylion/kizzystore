@@ -30,7 +30,10 @@ const Button = ({ type = "primary", children, to = "/", onClick }) => {
   }
   if (type === "black-outline") {
     return (
-      <button className="flex h-fit w-fit cursor-pointer flex-nowrap text-nowrap border border-gray-950 bg-transparent px-8 py-[0.75em] text-center text-sm font-semibold text-gray-950 transition-colors duration-300 hover:bg-gray-950 hover:text-white">
+      <button
+        className="flex h-fit w-fit cursor-pointer flex-nowrap text-nowrap border border-gray-950 bg-transparent px-8 py-[0.75em] text-center text-sm font-semibold text-gray-950 transition-colors duration-300 hover:bg-gray-950 hover:text-white"
+        onClick={onClick}
+      >
         {children}
       </button>
     );
