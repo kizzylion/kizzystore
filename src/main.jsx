@@ -8,14 +8,14 @@ import ReactGA from "react-ga4";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import ErrorPage from "./ErrorElement";
-import LandingPage from "./pages/landingPage/LandingPage";
-import Products, { fetchProducts as loadProducts } from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails";
-import AllCategoriesPage from "./pages/AllCategoriesPage";
-import { loader as loadProductDetails } from "./pages/ProductDetails";
+import LandingPage from "@/pages/landingPage/LandingPage";
+import Products, { fetchProducts as loadProducts } from "@/routes/Products";
+import ProductDetails from "@/routes/ProductDetails";
+import AllCategoriesPage from "@/routes/AllCategoriesPage";
+import { loader as loadProductDetails } from "@/routes/ProductDetails";
 import CategoryProducts, {
   loader as loadCategoryProducts,
-} from "./pages/CategoryProducts";
+} from "@/routes/CategoryProducts";
 
 // Initialize Google Analytics using the tracking ID from the .env file
 const trackingId = import.meta.env.VITE_GA_TRACKING_ID;

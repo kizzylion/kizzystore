@@ -1,7 +1,7 @@
 import { removeTransparentBg, headerScroll } from "@/utilities/utilities";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import CategorySection from "./landingPage/CategorySection";
+import CategorySection from "@/pages/landingPage/CategorySection";
 
 function AllCategoriesPage() {
   useEffect(() => {

@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
-export async function fetchProducts() {
+export async function loader({ params }) {
   try {
-    const response = await fetch("https://api.escuelajs.co/api/v1/products");
+    const response = await fetch(
+      `https://api.escuelajs.co/api/v1/products?categoryId=${params.categoryId}`,
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
@@ -17,7 +19,7 @@ export async function fetchProducts() {
   }
 }
 
-function Products() {
+function CategoryProducts() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   useEffect(() => {
     removeTransparentBg();
@@ -27,22 +29,22 @@ function Products() {
     };
   }, []);
 
-  const { category } = useParams();
   const { data } = useLoaderData();
 
-  console.log(data);
+  const title = data[0].category.name;
 
   return (
     <div id="shop" className="relative h-fit w-screen py-5 md:py-10 lg:px-8">
       <section className="heading flex flex-col items-center px-5 py-8 md:px-8">
         <h1 className="text-center text-2xl font-medium capitalize md:text-4xl">
-          {category ? category : "Shop"}
+          {title ? title : "Shop"}
         </h1>
         <div
           id="breadcrumb"
           className="flex w-fit items-center gap-2 py-4 text-sm text-gray-500"
         >
-          <Link to="/">Home</Link> /<span className="text-gray-900">Shop</span>
+          <Link to="/">Home</Link> / <Link to="/categories">Categories</Link> /{" "}
+          <span className="text-gray-900">{title}</span>
         </div>
       </section>
       <div className="flex flex-col gap-4">
@@ -84,4 +86,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default CategoryProducts;

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./heading.scss";
+import PropTypes from "prop-types";
 
-const Heading = () => {
+const Heading = ({ cartItems }) => {
   return (
     <header id="header" className="transparent-bg sticky top-0 z-50 lg:px-8">
       <section className="w-full px-5 md:px-8">
@@ -48,8 +49,15 @@ const Heading = () => {
             <button className="searchbtn cursor-pointer lg:hidden">
               <i className="bi bi-search"></i>
             </button>
-            <button className="cartbtn">
+            <button className="cartbtn relative h-fit w-fit">
               <i className="bi bi-bag"></i>
+              <span
+                className={`absolute -bottom-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-gray-900 text-xs text-white ${
+                  cartItems.length > 0 ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                {cartItems.length}
+              </span>
             </button>
           </div>
         </div>
@@ -59,3 +67,7 @@ const Heading = () => {
 };
 
 export default Heading;
+
+Heading.propTypes = {
+  cartItems: PropTypes.array.isRequired,
+};

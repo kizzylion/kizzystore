@@ -52,12 +52,21 @@ function ProductDetails() {
       <main className="grid w-full grid-cols-1 items-center gap-12 px-5 md:grid-cols-2 lg:gap-16 lg:px-8 lg:pr-20">
         <div className="image-section @container/image-section">
           <div className="flex flex-col gap-2 @lg/image-section:grid @lg/image-section:grid-cols-[1fr_4fr]">
-            <div className="image-container flex h-full w-full bg-gray-100 @lg/image-section:order-last">
-              <img
-                src={selectedImage}
-                alt={data.title}
-                className="aspect-square h-auto w-full object-cover transition-all duration-300"
-              />
+            <div className="image-container relative flex h-full w-full bg-gray-100 @lg/image-section:order-last">
+              {data.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image
+                    .replace(/^\["|"\]$/g, "")
+                    .replace(/^\[\\?"|\\?"\]$/g, "")}
+                  alt={data.title}
+                  className={`absolute inset-0 aspect-square h-auto w-full object-cover transition-all duration-300 ${
+                    selectedImage === image
+                      ? "relative opacity-100"
+                      : "absolute opacity-0"
+                  }`}
+                />
+              ))}
             </div>
             <div className="image-group flex h-full w-full gap-2 @lg/image-section:order-first @lg/image-section:mt-0 @lg/image-section:h-auto @lg/image-section:flex-col">
               {data.images.map((image, index) => (
@@ -69,7 +78,9 @@ function ProductDetails() {
                   onClick={() => setSelectedImage(image)}
                 >
                   <img
-                    src={image}
+                    src={image
+                      .replace(/^\["|"\]$/g, "")
+                      .replace(/^\[\\?"|\\?"\]$/g, "")}
                     alt={data.title}
                     draggable={false}
                     className="aspect-square h-auto w-full object-cover"
