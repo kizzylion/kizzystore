@@ -49,7 +49,7 @@ function ProductDetails() {
         </div>
       </section>
 
-      <main className="grid w-full grid-cols-1 gap-12 px-5 md:grid-cols-2 lg:gap-16 lg:px-8 lg:pr-20">
+      <main className="grid w-full grid-cols-1 items-center gap-12 px-5 md:grid-cols-2 lg:gap-16 lg:px-8 lg:pr-20">
         <div className="image-section @container/image-section">
           <div className="flex flex-col gap-2 @lg/image-section:grid @lg/image-section:grid-cols-[1fr_4fr]">
             <div className="image-container flex h-full w-full bg-gray-100 @lg/image-section:order-last">
