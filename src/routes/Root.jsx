@@ -15,13 +15,7 @@ const Root = () => {
     ReactGA.send({ hitType: "pageview", page: location.pathname });
   }, [location]);
 
-  const [cartItems, setCartItems] = useState([
-    // { id: 15, price: 10, quantity: 1 },
-    // { id: 20, price: 20, quantity: 2 },
-    // { id: 21, price: 30, quantity: 1 },
-    // { id: 22, price: 40, quantity: 1 },
-    // { id: 23, price: 50, quantity: 1 },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (product, selectedQuantity = 1) => {
     //Clean up the image url

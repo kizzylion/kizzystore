@@ -113,6 +113,7 @@ const CartSection = ({
   setCartItems,
   onClose,
   handleRemoveFromCart,
+  toggleCart,
 }) => {
   const [productDetails, setProductDetails] = useState({});
 
@@ -149,38 +150,55 @@ const CartSection = ({
           </button>
         </div>
       </div>
-      <div className="cart-items flex-1 overflow-y-auto p-4">
-        {cartItems.map(
-          (cartItem) =>
-            productDetails[cartItem.id] && (
-              <CartItem
-                cartItem={cartItem}
-                key={cartItem.id}
-                setCartItems={setCartItems}
-                productData={productDetails[cartItem.id]}
-                handleRemoveFromCart={handleRemoveFromCart}
-              />
-            ),
-        )}
-      </div>
-      <div className="subtotal flex w-full flex-col items-center justify-between px-4 pb-8">
-        <div className="flex w-full items-center justify-between gap-2 border-t border-gray-700 py-4">
-          <p className="text-lg font-semibold">Subtotal</p>
-          <p className="text-xl font-semibold">
-            $
-            {cartItems.reduce(
-              (acc, item) => acc + item.price * item.quantity,
-              0,
+      {cartItems.length > 0 && (
+        <>
+          <div className="cart-items flex-1 overflow-y-auto p-4">
+            {cartItems.map(
+              (cartItem) =>
+                productDetails[cartItem.id] && (
+                  <CartItem
+                    cartItem={cartItem}
+                    key={cartItem.id}
+                    setCartItems={setCartItems}
+                    productData={productDetails[cartItem.id]}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                  />
+                ),
             )}
-          </p>
+          </div>
+          <div className="subtotal flex w-full flex-col items-center justify-between px-4 pb-8">
+            <div className="flex w-full items-center justify-between gap-2 border-t border-gray-700 py-4">
+              <p className="text-lg font-semibold">Subtotal</p>
+              <p className="text-xl font-semibold">
+                $
+                {cartItems.reduce(
+                  (acc, item) => acc + item.price * item.quantity,
+                  0,
+                )}
+              </p>
+            </div>
+            <Link
+              to="/checkout"
+              className="w-full rounded-md bg-gray-900 py-2 text-center text-white transition-all duration-300 hover:bg-gray-800 focus:bg-gray-800"
+            >
+              Checkout
+            </Link>
+          </div>
+        </>
+      )}
+      {cartItems.length == 0 && (
+        <div className="cart-items flex flex-col items-center overflow-y-auto p-4">
+          <h3 className="mb-8 text-2xl font-normal">Your cart is empty</h3>
+          <p className="mb-6 text-gray-600">Not sure where to start?</p>
+          <Link
+            to="/shop"
+            onClick={toggleCart}
+            className="block w-fit border border-gray-950 px-[14px] py-2 uppercase text-gray-900 hover:bg-gray-200"
+          >
+            Shop Now
+          </Link>
         </div>
-        <Link
-          to="/checkout"
-          className="w-full rounded-md bg-gray-900 py-2 text-center text-white transition-all duration-300 hover:bg-gray-800 focus:bg-gray-800"
-        >
-          Checkout
-        </Link>
-      </div>
+      )}
     </div>
   );
 };
@@ -192,6 +210,7 @@ CartSection.propTypes = {
   setCartItems: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   handleRemoveFromCart: PropTypes.func.isRequired,
+  toggleCart: PropTypes.function,
 };
 
 CartItem.propTypes = {

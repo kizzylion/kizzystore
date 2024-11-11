@@ -6,7 +6,6 @@ import {
   notify,
 } from "../utilities/utilities";
 import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
 
 export async function loader({ params }) {
   try {
@@ -26,8 +25,8 @@ export async function loader({ params }) {
 
 function ProductDetails() {
   const { data } = useLoaderData();
-  const { handleAddToCart, setCartItems } = useOutletContext();
-  const navigate = useNavigate();
+  const { handleAddToCart, toggleCart } = useOutletContext();
+
   useEffect(() => {
     removeTransparentBg();
     window.removeEventListener("scroll", headerScroll);
@@ -50,9 +49,8 @@ function ProductDetails() {
   return (
     <div id="product-detail" className="h-fit w-screen py-5 md:py-10 lg:px-8">
       <section className="heading mb-8 flex flex-col px-5 md:mb-10 md:px-8">
-        <div id="breadcrumb" className="flex items-center gap-2">
+        <div id="breadcrumb" className="flex flex-wrap items-center gap-2">
           <Link to="/">Home</Link> /<Link to="/shop">Shop</Link> /
-          <Link to={`/shop/${data.category.id}`}>{data.category.name}</Link> /
           <span>{data.title}</span>
         </div>
       </section>
@@ -81,7 +79,7 @@ function ProductDetails() {
                 <button
                   className={`image-container ${
                     selectedImage === image ? "ring-4 ring-gray-500" : ""
-                  } w-full transition-all duration-300`}
+                  } flex w-full max-w-32 transition-all duration-300`}
                   key={index}
                   onClick={() => setSelectedImage(image)}
                 >
@@ -161,8 +159,7 @@ function ProductDetails() {
               type="black"
               onClick={() => {
                 handleAddToCart(data, quantity);
-                notify("Added to cart", "success");
-                navigate("/checkout");
+                toggleCart();
               }}
             >
               Buy It Now
