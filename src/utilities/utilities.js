@@ -17,11 +17,13 @@ function headerScroll() {
 }
 const notify = (message, variant = "info") => {
   toast(message, {
-    autoClose: 3000,
-    position: "bottom-right",
+    autoClose: 2000,
+    position: "top-right",
     hideProgressBar: true,
     closeButton: false,
     type: variant,
+    stacked: true,
+    limit: 3,
   });
 };
 

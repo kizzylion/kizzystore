@@ -16,6 +16,7 @@ import { loader as loadProductDetails } from "@/routes/ProductDetails";
 import CategoryProducts, {
   loader as loadCategoryProducts,
 } from "@/routes/CategoryProducts";
+import CheckoutPage from "@/routes/CheckoutPage";
 
 // Initialize Google Analytics using the tracking ID from the .env file
 const trackingId = import.meta.env.VITE_GA_TRACKING_ID;
@@ -54,6 +55,10 @@ const routes = createBrowserRouter([
         path: "/shop/:productId",
         element: <ProductDetails />,
         loader: loadProductDetails,
+      },
+      {
+        path: "/checkout",
+        element: <CheckoutPage />,
       },
     ],
   },

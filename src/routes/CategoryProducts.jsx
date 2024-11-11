@@ -1,6 +1,6 @@
 import { removeTransparentBg, headerScroll } from "@/utilities/utilities";
 import { useEffect, useState } from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
 export async function loader({ params }) {

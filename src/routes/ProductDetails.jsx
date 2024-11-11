@@ -1,8 +1,11 @@
 import { Link, useLoaderData, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { removeTransparentBg, headerScroll } from "../utilities/utilities";
+import {
+  removeTransparentBg,
+  headerScroll,
+  notify,
+} from "../utilities/utilities";
 import Button from "../components/Button";
-import { ToastContainer, toast } from "react-toastify";
 
 export async function loader({ params }) {
   try {
@@ -22,7 +25,7 @@ export async function loader({ params }) {
 
 function ProductDetails() {
   const { data } = useLoaderData();
-  const { handleAddToCart, cartItems } = useOutletContext();
+  const { handleAddToCart } = useOutletContext();
 
   useEffect(() => {
     removeTransparentBg();
@@ -31,10 +34,6 @@ function ProductDetails() {
       removeTransparentBg();
     };
   }, []);
-
-  const notify = () => {
-    toast("This is a simple toast!");
-  };
 
   const [quantity, setQuantity] = useState(1);
 
@@ -46,6 +45,7 @@ function ProductDetails() {
   const handleDecrease = () => {
     setQuantity(quantity - 1);
   };
+
   return (
     <div id="product-detail" className="h-fit w-screen py-5 md:py-10 lg:px-8">
       <section className="heading mb-8 flex flex-col px-5 md:mb-10 md:px-8">
@@ -151,7 +151,7 @@ function ProductDetails() {
               type="black-outline"
               onClick={() => {
                 handleAddToCart(data, quantity);
-                notify();
+                notify("Added to cart", "success");
               }}
             >
               Add to Cart
