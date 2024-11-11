@@ -4,6 +4,7 @@ import {
   Form,
   Link,
   useLoaderData,
+  useNavigation,
   useParams,
   useSubmit,
 } from "react-router-dom";
@@ -33,6 +34,11 @@ function Products() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const submit = useSubmit();
   const { data, q } = useLoaderData();
+  const navigation = useNavigation();
+
+  const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has("q");
 
   useEffect(() => {
     removeTransparentBg();
@@ -71,9 +77,11 @@ function Products() {
           </button>
           <Form
             role="search"
-            className="searchbox border-1 w-40 rounded-lg border border-gray-400 px-3 py-[0.2em] outline-gray-400 ring-1 ring-inset ring-gray-400 lg:flex"
+            className="searchbox border-1 relative w-40 rounded-lg border border-gray-400 px-3 py-[0.2em] outline-gray-400 ring-1 ring-inset ring-gray-400 focus-within:ring-2 focus-within:ring-gray-900 lg:flex"
           >
-            <i className="bi bi-search pr-2 text-base"></i>
+            <i
+              className={`${searching ? "invisible" : ""} bi bi-search pr-2 text-base text-gray-500`}
+            ></i>
             <input
               id="q"
               name="q"
@@ -87,8 +95,9 @@ function Products() {
                   replace: !isFirstSearch,
                 });
               }}
-              className="hidden border-none bg-transparent text-sm outline-none md:flex"
+              className={`${searching ? "loading" : ""} hidden border-none bg-transparent text-sm outline-none md:flex`}
             />
+            <div id="search-spinner" aria-hidden hidden={!searching} />
           </Form>
           {/* <button className="searchbtn cursor-pointer lg:hidden">
             <i className="bi bi-search"></i>
