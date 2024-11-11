@@ -17,7 +17,7 @@ function headerScroll() {
 }
 const notify = (message, variant = "info") => {
   toast(message, {
-    autoClose: 2000,
+    autoClose: 1000,
     position: "top-right",
     hideProgressBar: true,
     closeButton: false,
