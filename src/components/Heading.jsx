@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 import "./heading.scss";
 import PropTypes from "prop-types";
 
-const Heading = ({ cartItems, onCartClick }) => {
+const Heading = ({ cartItems, onCartClick, onMenuClick, isSideMenuOpen }) => {
   return (
     <header id="header" className="transparent-bg sticky top-0 z-50 lg:px-8">
       <section className="w-full px-5 md:px-8">
         <div className="content grid w-full grid-cols-3 items-center border-b py-4">
           <nav className="flex items-center">
-            <button className="mobile-nav-bar cursor-pointer lg:hidden">
-              <i className="bi bi-list text-3xl"></i>
+            <button
+              onClick={onMenuClick}
+              className="mobile-nav-bar cursor-pointer lg:hidden"
+            >
+              {isSideMenuOpen ? (
+                <i className="bi bi-x text-3xl transition-all duration-300 ease-in-out"></i>
+              ) : (
+                <i className="bi bi-list text-3xl transition-all duration-300 ease-in-out"></i>
+              )}
             </button>
             <ul className="hidden items-center gap-4 lg:flex">
               <li>
@@ -71,4 +78,6 @@ export default Heading;
 Heading.propTypes = {
   cartItems: PropTypes.array.isRequired,
   onCartClick: PropTypes.func.isRequired,
+  onMenuClick: PropTypes.func.isRequired,
+  isSideMenuOpen: PropTypes.string.isRequired,
 };

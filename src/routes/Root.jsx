@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css"; // Default styles
 import HeadingBanner from "../components/HeadingBanner";
 import { useEffect, useState } from "react";
 import CartSection from "../components/CartSection";
+import SideMenuSection from "../components/SideMenu";
 
 const Root = () => {
   const location = useLocation();
@@ -56,16 +57,42 @@ const Root = () => {
   };
 
   // Add state for cart visibility
+  // Add state for mobile menu visibility
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isSideMenuOpen, setSideMenuOpen] = useState(false);
 
   // Add toggle function
   const toggleCart = () => setIsCartOpen((prev) => !prev);
+  const toggleSideMenu = () => setSideMenuOpen((prev) => !prev);
 
   return (
     <div className="relative">
       <HeadingBanner />
-      <Heading cartItems={cartItems} onCartClick={toggleCart} />
+      <Heading
+        cartItems={cartItems}
+        onCartClick={toggleCart}
+        onMenuClick={toggleSideMenu}
+        isSideMenuOpen={isSideMenuOpen}
+      />
       <main className="relative">
+        {/* Collapsible side menu */}
+        <aside
+          className={`absolute left-0 top-0 z-[100] h-full w-96 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:hidden ${
+            isSideMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <SideMenuSection
+            onClose={() => setSideMenuOpen(false)}
+            isSideMenuOpen={isSideMenuOpen}
+          />
+        </aside>
+        {/* Overlay  when side menu is open */}
+        {isSideMenuOpen && (
+          <div
+            className="absolute inset-0 z-[60] overflow-hidden bg-black bg-opacity-50 lg:hidden"
+            onClick={() => setSideMenuOpen(false)}
+          />
+        )}
         <Outlet
           context={{ handleAddToCart, cartItems, toggleCart, setCartItems }}
         />
@@ -83,6 +110,7 @@ const Root = () => {
           onClose={() => setIsCartOpen(false)}
           handleRemoveFromCart={handleRemoveFromCart}
           toggleCart={toggleCart}
+          isCartOpen={isCartOpen}
         />
       </aside>
 

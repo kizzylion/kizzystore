@@ -145,7 +145,7 @@ function ProductDetails() {
               </button>
             </div>
           </div>
-          <div className="product-actions flex items-center gap-2">
+          <div className="product-actions sticky inset-0 bottom-0 flex items-center gap-3 bg-white py-4">
             <Button
               type="black-outline"
               onClick={() => {

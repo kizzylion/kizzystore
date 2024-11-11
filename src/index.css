@@ -80,3 +80,8 @@ body {
 main {
   height: fit-content;
 }
+
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}

@@ -114,6 +114,7 @@ const CartSection = ({
   onClose,
   handleRemoveFromCart,
   toggleCart,
+  isCartOpen,
 }) => {
   const [productDetails, setProductDetails] = useState({});
 
@@ -131,6 +132,13 @@ const CartSection = ({
 
     fetchProductDetails();
   }, [cartItems]);
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isCartOpen]);
 
   return (
     <div className="flex h-full flex-col">
@@ -179,6 +187,7 @@ const CartSection = ({
             </div>
             <Link
               to="/checkout"
+              onClick={toggleCart}
               className="w-full rounded-md bg-gray-900 py-2 text-center text-white transition-all duration-300 hover:bg-gray-800 focus:bg-gray-800"
             >
               Checkout
@@ -211,6 +220,7 @@ CartSection.propTypes = {
   onClose: PropTypes.func.isRequired,
   handleRemoveFromCart: PropTypes.func.isRequired,
   toggleCart: PropTypes.function,
+  isCartOpen: PropTypes.string.isRequired,
 };
 
 CartItem.propTypes = {
