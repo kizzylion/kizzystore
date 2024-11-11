@@ -7,6 +7,7 @@ import {
   headerScroll,
   removeTransparentBg,
 } from "@/utilities/utilities";
+import SaveUpSection from "./SaveUpSection";
 
 function LandingPage() {
   useEffect(() => {
@@ -26,7 +27,16 @@ function LandingPage() {
           staple to gain from kizzy .
         </p>
       </RichText>
-      <CategorySection />
+      <div className="h-fit w-full lg:px-8">
+        <CategorySection />
+      </div>
+      <RichText>
+        <p className="mx-auto text-lg">
+          This store is a demonstration of my design and development skill.
+          Designed and Developed by Kizito.
+        </p>
+      </RichText>
+      <SaveUpSection />
     </main>
   );
 }
