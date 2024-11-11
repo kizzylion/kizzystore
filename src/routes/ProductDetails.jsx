@@ -25,7 +25,7 @@ export async function loader({ params }) {
 
 function ProductDetails() {
   const { data } = useLoaderData();
-  const { handleAddToCart } = useOutletContext();
+  const { handleAddToCart, setCartItems } = useOutletContext();
 
   useEffect(() => {
     removeTransparentBg();
@@ -156,7 +156,15 @@ function ProductDetails() {
             >
               Add to Cart
             </Button>
-            <Button type="black">Buy It Now</Button>
+            <Button
+              type="black"
+              to="/checkout"
+              onClick={() => {
+                setCartItems([]);
+              }}
+            >
+              Buy It Now
+            </Button>
           </div>
         </div>
       </main>

@@ -164,7 +164,7 @@ const CartSection = ({
             ),
         )}
       </div>
-      <div className="subtotal flex w-full flex-col items-center justify-between px-4">
+      <div className="subtotal flex w-full flex-col items-center justify-between px-4 pb-8">
         <div className="flex w-full items-center justify-between gap-2 border-t border-gray-700 py-4">
           <p className="text-lg font-semibold">Subtotal</p>
           <p className="text-xl font-semibold">

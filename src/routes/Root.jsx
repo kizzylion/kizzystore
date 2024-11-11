@@ -72,7 +72,9 @@ const Root = () => {
       <HeadingBanner />
       <Heading cartItems={cartItems} onCartClick={toggleCart} />
       <main className="relative">
-        <Outlet context={{ handleAddToCart, cartItems, toggleCart }} />
+        <Outlet
+          context={{ handleAddToCart, cartItems, toggleCart, setCartItems }}
+        />
       </main>
 
       {/* Collapsible cart aside */}
