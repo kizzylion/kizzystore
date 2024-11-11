@@ -3,7 +3,6 @@ import { loader as productDetailsLoader } from "../routes/ProductDetails";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { notify } from "../utilities/utilities";
-import Button from "./Button";
 
 function CartItem({
   cartItem,
@@ -200,5 +199,5 @@ CartItem.propTypes = {
   setCartItems: PropTypes.func.isRequired,
   productData: PropTypes.object.isRequired,
   handleRemoveFromCart: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
 };

@@ -6,6 +6,7 @@ import {
   notify,
 } from "../utilities/utilities";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 export async function loader({ params }) {
   try {
@@ -26,7 +27,7 @@ export async function loader({ params }) {
 function ProductDetails() {
   const { data } = useLoaderData();
   const { handleAddToCart, setCartItems } = useOutletContext();
-
+  const navigate = useNavigate();
   useEffect(() => {
     removeTransparentBg();
     window.removeEventListener("scroll", headerScroll);
@@ -158,9 +159,10 @@ function ProductDetails() {
             </Button>
             <Button
               type="black"
-              to="/checkout"
               onClick={() => {
-                setCartItems([]);
+                handleAddToCart(data, quantity);
+                notify("Added to cart", "success");
+                navigate("/checkout");
               }}
             >
               Buy It Now
