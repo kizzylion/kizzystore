@@ -34,31 +34,36 @@ const routes = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
-        element: <LandingPage />,
-      },
-      {
-        path: "/shop",
-        element: <Products />,
-        loader: loadProducts,
-      },
-      {
-        path: "/categories",
-        element: <AllCategoriesPage />,
-      },
-      {
-        path: "/categories/:categoryId",
-        element: <CategoryProducts />,
-        loader: loadCategoryProducts,
-      },
-      {
-        path: "/shop/:productId",
-        element: <ProductDetails />,
-        loader: loadProductDetails,
-      },
-      {
-        path: "/checkout",
-        element: <CheckoutPage />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/",
+            element: <LandingPage />,
+          },
+          {
+            path: "/shop",
+            element: <Products />,
+            loader: loadProducts,
+          },
+          {
+            path: "/categories",
+            element: <AllCategoriesPage />,
+          },
+          {
+            path: "/categories/:categoryId",
+            element: <CategoryProducts />,
+            loader: loadCategoryProducts,
+          },
+          {
+            path: "/shop/:productId",
+            element: <ProductDetails />,
+            loader: loadProductDetails,
+          },
+          {
+            path: "/checkout",
+            element: <CheckoutPage />,
+          },
+        ],
       },
     ],
   },

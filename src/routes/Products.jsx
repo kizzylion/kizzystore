@@ -68,7 +68,7 @@ function Products() {
         </div>
       </section>
       <div className="flex flex-col gap-4">
-        <div className="filter-section sticky top-[4.55rem] z-[100] mb-4 flex w-full items-center justify-between bg-white/40 px-5 py-3 backdrop-blur-sm md:px-8">
+        <div className="filter-section sticky top-[4.55rem] z-[50] mb-4 flex w-full items-center justify-between bg-white/40 px-5 py-3 backdrop-blur-sm md:px-8">
           <button
             className="flex items-center gap-2 text-lg font-medium"
             onClick={() => setIsFilterOpen(!isFilterOpen)}
@@ -77,7 +77,7 @@ function Products() {
           </button>
           <Form
             role="search"
-            className="searchbox border-1 relative w-40 rounded-lg border border-gray-400 px-3 py-[0.2em] outline-gray-400 ring-1 ring-inset ring-gray-400 focus-within:ring-2 focus-within:ring-gray-900 lg:flex"
+            className="searchbox border-1 relative flex w-40 rounded-lg border border-gray-400 px-3 py-[0.2em] outline-gray-400 ring-1 ring-inset ring-gray-400 focus-within:ring-2 focus-within:ring-gray-900"
           >
             <i
               className={`${searching ? "invisible" : ""} bi bi-search pr-2 text-base text-gray-500`}
@@ -95,13 +95,10 @@ function Products() {
                   replace: !isFirstSearch,
                 });
               }}
-              className={`${searching ? "loading" : ""} hidden border-none bg-transparent text-sm outline-none md:flex`}
+              className={`${searching ? "loading" : ""} flex w-full border-none bg-transparent text-sm outline-none`}
             />
             <div id="search-spinner" aria-hidden hidden={!searching} />
           </Form>
-          {/* <button className="searchbtn cursor-pointer lg:hidden">
-            <i className="bi bi-search"></i>
-          </button> */}
         </div>
         <div className="relative flex h-fit px-5 md:mb-10 md:px-8">
           <aside

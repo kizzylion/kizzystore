@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import Heading from "../components/Heading";
 import ReactGA from "react-ga4";
 import { ToastContainer } from "react-toastify";
@@ -10,6 +10,7 @@ import SideMenuSection from "../components/SideMenu";
 
 const Root = () => {
   const location = useLocation();
+  const navigation = useNavigation();
 
   useEffect(() => {
     // Track page views whenever the location changes
@@ -74,7 +75,9 @@ const Root = () => {
         onMenuClick={toggleSideMenu}
         isSideMenuOpen={isSideMenuOpen}
       />
-      <main className="relative">
+      <main
+        className={`relative ${navigation.state === "loading" ? "loading" : ""}`}
+      >
         {/* Collapsible side menu */}
         <aside
           className={`absolute left-0 top-0 z-[100] h-full w-96 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:hidden ${
