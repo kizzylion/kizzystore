@@ -57,9 +57,6 @@ const SideMenuSection = ({ onClose, isSideMenuOpen }) => {
 export default SideMenuSection;
 
 SideMenuSection.propTypes = {
-  cartItems: PropTypes.array.isRequired,
-  setCartItems: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
-  handleRemoveFromCart: PropTypes.func.isRequired,
-  toggleCart: PropTypes.function,
+  isSideMenuOpen: PropTypes.any,
 };

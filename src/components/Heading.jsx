@@ -45,17 +45,6 @@ const Heading = ({ cartItems, onCartClick, onMenuClick, isSideMenuOpen }) => {
             </Link>
           </div>
           <div className="search-cart flex items-center justify-end gap-6 text-2xl">
-            <div className="searchbox border-1 hidden px-3 py-[0.2em] lg:flex">
-              <i className="bi bi-search pr-2 text-base"></i>
-              <input
-                type="search"
-                placeholder="Search"
-                className="hidden border-none bg-transparent text-sm outline-none md:flex"
-              />
-            </div>
-            <button className="searchbtn cursor-pointer lg:hidden">
-              <i className="bi bi-search"></i>
-            </button>
             <button onClick={onCartClick} className="relative">
               <i className="bi bi-bag"></i>
               <span
@@ -79,5 +68,5 @@ Heading.propTypes = {
   cartItems: PropTypes.array.isRequired,
   onCartClick: PropTypes.func.isRequired,
   onMenuClick: PropTypes.func.isRequired,
-  isSideMenuOpen: PropTypes.string.isRequired,
+  isSideMenuOpen: PropTypes.any,
 };

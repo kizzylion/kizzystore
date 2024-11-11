@@ -219,8 +219,8 @@ CartSection.propTypes = {
   setCartItems: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   handleRemoveFromCart: PropTypes.func.isRequired,
-  toggleCart: PropTypes.function,
-  isCartOpen: PropTypes.string.isRequired,
+  toggleCart: PropTypes.func,
+  isCartOpen: PropTypes.any.isRequired,
 };
 
 CartItem.propTypes = {
