@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Heading from "../components/Heading";
 import ReactGA from "react-ga4";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Default styles
 import HeadingBanner from "../components/HeadingBanner";
 import { useEffect, useState } from "react";
