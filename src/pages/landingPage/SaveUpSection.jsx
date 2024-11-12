@@ -6,10 +6,10 @@ function SaveUp() {
       <div className="flex h-fit w-full flex-col items-center justify-center gap-7 border border-orange-900 px-5 py-10 text-orange-900 @md/save-up:flex-row md:flex-row md:px-8">
         <div className="flex h-fit w-full justify-center">
           <div className="box-1 flex w-fit flex-col gap-2">
-            <h3 className="" style={{ fontSize: "clamp(1rem, 2cqi, 1.5rem)" }}>
+            <h3 className="text-xl md:text-2xl">
               Save up to <br />
             </h3>
-            <h3 className="flex items-center gap-2">
+            <h3 className="flex w-fit items-center gap-2">
               <span className="text-9xl md:text-[10.875rem]">50</span>
               <span className="flex h-fit flex-col text-center">
                 <span className="text-4xl">%</span>

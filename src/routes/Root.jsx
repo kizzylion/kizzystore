@@ -80,7 +80,7 @@ const Root = () => {
       >
         {/* Collapsible side menu */}
         <aside
-          className={`absolute left-0 top-0 z-[100] h-full w-96 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:hidden ${
+          className={`fixed left-0 top-0 z-[100] h-screen w-96 transform bg-white shadow-lg transition-transform duration-300 ease-in-out lg:hidden ${
             isSideMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
